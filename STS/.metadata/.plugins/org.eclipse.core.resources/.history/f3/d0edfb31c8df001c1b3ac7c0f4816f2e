@@ -1,0 +1,5 @@
+package com.virtusa.empservice.entity;
+
+public class Employee {
+
+}

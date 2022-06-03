@@ -1,0 +1,20 @@
+package com.virtusa.kafka;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.kafka.clients.producer.ProducerConfig;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.core.ProducerFactory;
+
+@Configuration
+public class KafkaConfig {
+	
+	@Bean
+	public ProducerFactory<String, Order> producerFactory() {
+		Map<String, Object> config = new HashMap<>();
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"127.0.0.1:9092");
+	}
+
+}

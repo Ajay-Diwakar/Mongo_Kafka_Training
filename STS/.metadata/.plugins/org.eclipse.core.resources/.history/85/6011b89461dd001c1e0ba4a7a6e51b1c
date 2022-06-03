@@ -1,0 +1,17 @@
+package com.virtusa.kafka;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class OrdersController {
+	
+	private static final String TOPIC = "OrderTopic";
+	
+	@GetMapping("/publish/{message}")
+	public String publishOrderInfo(@PathVariable("message") final String message) {
+		return "";
+	}
+
+}

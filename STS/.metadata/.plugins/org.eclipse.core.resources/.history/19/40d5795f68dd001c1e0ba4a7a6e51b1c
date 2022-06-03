@@ -1,0 +1,8 @@
+package com.virtusa.kafka;
+
+public class Order {
+	
+	private String isbn;
+	private String prodName;
+
+}

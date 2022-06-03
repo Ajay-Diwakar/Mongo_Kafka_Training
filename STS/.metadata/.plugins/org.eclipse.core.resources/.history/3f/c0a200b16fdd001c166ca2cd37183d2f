@@ -1,0 +1,12 @@
+package com.virtusa.kafka.consumer;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class KafkaConsumer {
+	
+	public void consumer(String message) {
+		System.out.println("Message ="+ message);
+	}
+
+}

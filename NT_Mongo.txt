@@ -1,0 +1,1081 @@
+db.flightData.deleteMany({marker:"toDelete"})
+
+db.flightData.updateOne({ "_id" : ObjectId("626759d29cc425aa70efa790")}, {$set: {delay: true} })
+
+ db.passengers.find().forEach( (passengerData) => {
+printjson(passengerData) } )
+
+db.flightData.updateMany(
+	{},
+	{
+		$set: {
+			status: {
+				description : "on-time",
+				lastUpdated : "1 hr ago"
+			}
+		}
+	}
+)
+
+
+db.passengers.updateOne(
+	{
+		name: "Albert Twostone"
+	},
+	{$set: 
+		{
+			hobbies: ["sports", "cooking"]
+		}
+	})
+
+
+db.companies.insertOne(
+	{
+		name: "Virtusa",
+		isStartUp: false,
+		employees: 20000,
+		funding:123456789123456789000,
+		details:{
+				ceo: "xyz"
+			},
+		tags:[
+			{t: "perf"}
+		],
+		foundingDate: new Date(),
+		insertedAt: new Timestamp()
+	}
+	)
+
+
+db.diseaseSummary.insertOne(
+	{
+		_id: "summary-vk-1",
+		diseases: ["cold", "fever"]
+	}
+)
+
+var dsid = db.patients.findOne().diseaseSummary
+
+
+use carData
+
+db.person.insertOne(
+	{
+		name: "ajay",
+		age: 24,
+		salary: 50000
+	}
+)
+
+db.car.insertOne(
+	{
+	model: "Hyundai",
+	price: 800000,
+	owner: ObjectId("6268b3338f43636524485ba8")
+	}
+)
+
+
+use support 
+
+db.questionThread.insertOne(
+	{
+		creator: "ajay",
+		question: "how foes it work",
+		answers: ["q1a1", "q1a2"]
+	}
+)
+
+db.answers.insertMany([
+	{
+		_id: "q1a1",
+		text: "it words lillkes that"
+	},
+	{
+		_id: "q1a2",
+		text: "asdgresda"
+	}
+])
+
+
+db.questionsThread.deleteMany({})
+
+
+
+db.books.insertOne(
+{
+	name: "fav book",
+	authors: {
+		name: "ajay"
+		}
+}
+)
+
+db.authors.insertMany(
+[
+	{
+	name: "ajay",
+	city: "chennai"
+	},
+	{
+	name: "laks",
+	city: "chennai"
+	}
+]
+)
+
+db.books.updateOne(
+	{},
+	{
+		$set: {
+			authors: [ObjectId("6269f7120ae25f032768dbe8"),
+               			 ObjectId("6269f7120ae25f032768dbe9")]
+			}
+	}
+)
+
+use blog
+
+db.users.insertMany(
+	[
+	{
+		name: "ajay",
+		age: 24,
+		email: "ajay@gmail.com"
+	},
+	{
+		name: "aishu",
+		age: 23,
+		email: "aishu@gmail.com"
+	},
+	{
+		name: "pavi",
+		age: 29,
+		email: "pavi@gmail.com"
+	}
+	]
+)
+
+db.post.insertOne(
+{
+title: "a new post",
+text: "clicked by me",
+tags: "picture",
+creator: ObjectId("6269fb150ae25f032768dbea"),
+comments:[
+{
+text: "Nice",
+author: ObjectId("6269fb150ae25f032768dbec"),
+}
+]		
+}
+)
+
+
+db.persons.insertOne(
+	{
+		name: "ajay",
+		age: 24,
+		hobbies: ["tv","games"]
+	}
+)
+
+db.persons.insertOne(
+	{
+		name: "lakshith",
+		age: 2,
+		hobbies: ["tv","games"]
+	}
+)
+
+db.persons.insertMany(
+	[
+		{
+			name: "ravi",
+			age: 59,
+			hobbies: ["cooking","games"]
+		},
+		{
+			name: "aishu",
+			age: 24,
+			hobbies: ["cooking","games"]
+		}
+	]
+)
+
+db.persons.insert({name: "virat", age: 34})
+
+db.persons.insert(
+	[
+		{
+			name: "rohit",
+			age: 35,
+			hobbies: ["cooking","games"]
+		},
+		{
+			name: "dhoni",
+			age: 42,
+			hobbies: ["cooking","games"]
+		}
+	]
+)
+
+db.hobbies.insertMany(
+	[
+		{_id: "sports" , name: "sports"},
+		{_id: "cooking", name: "cooking"},
+		{_id: "cars" , name: "cars"}
+	]
+)
+
+db.hobbies.insertMany(
+	[
+		{_id: "yoga" , name: "Yoga"},
+		{_id: "cooking", name: "cooking"},
+		{_id: "hiking" , name: "Hiking"}
+	]
+)
+
+db.hobbies.insertMany(
+	[
+		{_id: "yoga" , name: "Yoga"},
+		{_id: "cooking", name: "cooking"},
+		{_id: "hiking" , name: "Hiking"}
+	],
+	{ordered: false}
+)
+
+db.persons.insertOne(
+	{
+		name: "cherry",
+		age: 31
+	},
+	{
+		writeConcern: {w:0}
+	}
+)
+
+mongoimport tv-shows.json -d movieData -c movies --jsonArray --drop
+
+use movieData 
+
+db.movies.findOne()
+
+db.movies.find().count()
+
+db.movies.find(
+	{
+		"rating.average" :
+		{
+			$gt : 9
+		}
+	}
+)
+
+db.sales.insertMany(
+	[
+		{
+			volume: 100,
+			target: 120
+		},
+		{
+			volume: 89,
+			target: 80
+		},
+		{
+			volume: 200,
+			target: 177
+		},
+	]
+)
+
+db.sales.find({
+	$expr:
+	{
+		$gt : ["$volume", "$target"]
+	}
+})
+
+
+use user
+
+db.users.insertOne(
+	{
+		name: "ajay",
+		hobbies:["cooking","hiking","sports"]
+	}
+)
+db.users.insertOne(
+	{
+		name: "jordan",
+		hobbies:["cooking","hiking"]
+	}
+)
+
+db.users.find(
+	{
+		hobbies:{
+			$size: 3
+		}
+	}
+).pretty()
+-------------------------------------------------------
+use boxOffice
+
+db.moviestats.insertMany([
+    {
+        title: "The Last Student Returns",
+        meta: {
+            rating: 9.5,
+            aired: 2018,
+            runtime: 100
+        },
+        visitors: 1300000,
+        expectedVisitors: 1550000,
+        genres: [
+            "thriller",
+            "drama",
+            "action"
+        ]
+    },
+    {
+        title: "Teach me if you can",
+        meta: {
+            rating: 8.5,
+            aired: 2014,
+            runtime: 90
+        },
+        visitors: 590378,
+        expectedVisitors: 500000,
+        genres: [
+            "action",
+            "thriller"
+        ]
+    }
+])
+
+db.moviestats.find(
+	{
+		genres: ["action","thriller"]
+	}
+).pretty()
+
+db.moviestats.find(
+	{
+		genres: { $all: ["action","thriller"] }
+	}
+).pretty()
+
+------------------------------------------
+const dataCursor = db.movies.find()
+
+dataCursor.next()
+
+dataCursor.forEach(doc => {printjson(doc)})
+
+hasNext()
+-----------------------------------------------
+
+db.movies.find().sort({"rating.average" : 1}).pretty()
+
+db.movies.find().sort({"rating.average" : 1, runtime: -1}).pretty()
+
+db.movies.find().sort({"rating.average" : 1, runtime: -1}).sort({"rating.average": 1}).pretty()
+
+db.movies.find().sort({"rating.average" : 1, runtime: -1}).sort({"rating.average": 1}).skip(100).pretty()
+
+db.movies.find({},{name:1 , rating:1, runtime:1})
+---------------------------------------------------------
+
+-- UPDATE
+
+db.users.updateMany(
+	{},
+	{
+		$set:{
+			hobbies:[
+				{
+					title:"sports",
+					frequency:5
+				},
+				{
+					title:"cooking",
+					frequency:5
+				}
+			]
+		}
+	}
+)
+
+db.users.updateMany(
+	{
+		name: "dhoni"
+	},
+	{
+		$set: {age: 40}
+	}
+)
+
+db.users.updateMany(
+	{name:"dhoni"},
+	{$inc:{age:2}}
+)
+
+
+db.users.updateOne(
+	{name: "Maria"},
+	{$set:
+		{
+			age: 29,
+			hobbies:[
+				{
+					title: "good food",
+					frequency: 3
+				}
+			],
+			isSporty: false
+		}
+	},
+	{ upsert: true }
+)
+
+
+db.users.find({
+	$and: [
+		{ "hobbies.title" : "sports"},
+		{ "hobbies.title" : {$gte:3}}
+	]
+}).pretty()
+
+db.users.find(
+	{
+		hobbies:{
+			$elemMatch : {
+				title: "sports",
+				frequency:{
+					$gte: 3
+				}
+			}
+		}
+	}
+).pretty()
+
+
+db.users.updateMany(
+	{
+		hobbies:{
+			$elemMatch : {
+				title: "sports",
+				frequency:{
+					$gte: 3
+				}
+			}
+		}
+	},
+	{
+		$set:{
+			"hobbies.$.highFrequency": true
+		}
+	}
+)
+
+db.users.updateOne(
+	{name:"dhoni"},
+	{
+		$inc:{
+			"hobbies.$[].frequency": 2
+		}
+	}
+)
+
+-- for updating all the items/objects in the array
+db.users.updateMany(
+	{"hobbies.frequency": {$gt:2}},
+	{
+		$set:{
+			"hobbies.$[el].goodFrequency": true
+		}
+	},
+	{
+		arrayFilters: [ {"el.frequency": { $gt:2}}]
+	}
+)
+
+
+db.users.updateOne(
+	{name:"Maria"},
+	{
+		$push:{
+			hobbies:{
+				title:"sports",
+				frequency:2
+			}		
+		}
+	}
+)
+
+
+db.users.updateOne(
+	{name:"Maria"},
+	{
+		$push:{
+			hobbies:{
+				$each: [
+					{title: "good wine", frequency:1},
+					{title: "hiking", frequency:2}
+				]
+			}		
+		}
+	}
+)
+
+db.users.updateOne(
+	{name:"Maria"},
+	{
+		$push:{
+			hobbies:{
+				$each: [
+					{title: "good wine", frequency:1},
+					{title: "boating", frequency:2}
+				],
+				$sort: {frequency:-1}
+			}		
+		}
+	}
+)
+
+
+db.users.updateMany(
+	{name:"Maria"},
+	{
+		$pull:{
+			hobbies:{title:"good food"}
+		}
+	}
+)
+
+db.users.updateOne(
+	{name:"chris"},
+	{ $pop: {hobbies:1}}
+)
+
+
+db.users.updateOne(
+	{name:"Maria"},
+	{
+		$addToSet:{
+			hobbies:{
+				title:"hiking",
+				frequency:3
+			}
+		}
+	}
+)
+
+
+---------------------------------------------------------------------------------------------------
+-- Delete ops
+
+db.users.deleteMany({name:"chris"})
+
+db.users.deleteMany({age: {$gt:25},isSporty:true})
+
+db.users.deleteMany({})
+
+db.users.drop()
+
+db.dropDatabase()
+
+---------------------------------------------------------------------------------------------------
+
+-- INdexes
+
+-- insert person.json
+
+
+mongoimport persons.json -d contactData -c contacts --jsonArray
+
+
+db.contacts.find(
+	{
+		"dob.age" : { $gt : 60}
+	}
+).pretty()
+
+db.contacts.find(
+	{
+		"dob.age" : { $gt : 60}
+	}
+).count()
+
+>1222
+
+-- using explain()
+
+db.contacts.explain().find(
+	{
+		"dob.age" : { $gt : 60}
+	}
+)
+
+db.contacts.explain("executionStats").find(
+	{
+		"dob.age" : { $gt : 60}
+	}
+)
+
+-- INdexes
+
+db.collectionname.createIndex({fieldName: order})
+
+db.contacts.createIndex({"dob.age":1})
+
+
+-- drop INdexes
+
+db.collectionname.dropIndex({fieldName:order})
+
+db.contacts.dropIndex({"dob.age":1})
+
+
+--list INdexes
+db.collectionname.getIndexes()
+
+
+--partial INdexes
+
+db.contacts.createIndex({"dob.age":1},{partialFilterExpression:{gender:"male"}})
+
+------------------------------------------------------------------------------------------------
+
+db.users.insertMany([
+	{name:"dhoni",email:"dhoni@gmail.com"},
+	{name:"kohli"}
+])
+
+db.users.createIndex({email:1})
+
+----------------------------------------------------------------------------
+
+--TTL time to live
+
+db.sessions.insertOne(
+	{
+		data: "just a message",
+		createAt: new Date()
+	}
+)
+
+db.sessions.find().pretty()
+
+db.sessions.createIndex(
+	{createAt: 1},
+	{expireAfterSeconds: 10}
+)
+
+
+----------------------------------------
+
+-- reject plan
+
+
+db.customers.getIndexes()
+
+db.customers.createIndex({age:1,name:1})
+
+
+db.customers.explain().find({name:"dhoni",age:32})
+
+db.customers.explain().find({age:32,name:"dhoni"})
+-----------------------------------------------------------------
+
+--multi key INdexes
+
+use contactData
+
+db.contacts.drop()
+
+db.contacts.insertOne(
+	{
+		name: "ajay",
+		hobbies:["cooking","sports"],
+		addresses:[
+			{
+				street: "main street"
+			},
+			{
+				street: "second street"
+			}
+		]
+	}
+)
+
+db.contacts.createIndex({hobbies: 1})
+
+db.contacts.find({hobbies: "sports"}).pretty()
+
+
+db.contacts.createIndex({"addresses.street": 1})
+
+db.contacts.find({"addresses.street": "main street"}).pretty()   	-- collscan
+
+db.contacts.find({
+	addresses:{
+		street: "main street"
+	}
+})						--ixscan
+
+db.contacts.createIndex({name: 1,hobbies:1})
+------------------------------------------------------------------------------------------------------------
+
+-- text INdexes
+
+db.products.insertMany([
+	{
+		title: "a book",
+		description: "this is a good book"
+	},
+	{
+		title: "red t-shirt",
+		description: "its a nice t-shirt"
+	}
+])
+
+
+db.products.createIndex({description: "text"})
+
+db.products.find({ $text: {
+	$search: "nice"
+}
+}).pretty()
+
+db.products.find({ $text: {
+	$search: "good nice"
+}
+}).pretty()
+
+
+db.products.find(
+	{
+		$text: {
+			$search: "good nice t-shirt"
+		}
+	},
+	{
+		score:{
+			$meta: "textScore"
+		}
+	}
+).pretty()
+
+db.products.getIndexes()
+
+db.products.createIndex({title: "text", description: "text"})
+
+
+db.products.insertOne({
+	title: "a ship",
+	description: "floats perfectly"
+})
+
+db.products.find(
+	{
+		$text:{
+			$search: "ship some"
+		}
+	}
+).pretty()
+
+db.products.find(
+	{
+		$text:{
+			$search: "ship nice"
+		}
+	}
+).pretty()
+
+
+db.products.find(
+	{
+		$text:{
+			$search: "-ship nice"
+		}
+	}
+).pretty()
+
+db.products.dropIndex("title_text_description_text")
+
+db.products.createIndex(
+	{ title:"text", description:"text"},
+	{ 
+		default_language: "english",
+		weights:{
+			title:1,
+			description:10
+		}
+	}
+)
+
+--example
+db.products.find({
+	$text:{
+		$search: "",
+		$language: "",
+		$caseSensitive: true/false
+	}
+})
+
+
+
+db.products.find(
+	{
+		$text: {
+			$search: "t-shirt"
+		}
+	},
+	{
+		score:{
+			$meta: "textScore"
+		}
+	}
+).pretty()
+
+
+db.products.find(
+	{
+		$text: {
+			$search: "t-shirt"
+		}
+	},
+	{
+		score:{
+			$meta: "textScore"
+		}
+	}
+).sort({score:{	$meta: "textScore"}})
+
+----------------------------------------------------------------------------------------------------------------------
+
+--geospatial
+
+
+use awesomeplaces
+
+db.places.insertOne(
+	{
+		name: "first location",
+		location:{
+			type: "Point",
+			coordinates: [80.281259,13.116394]
+		}
+	}
+)
+
+db.places.find(
+	{
+		location:{
+			$near:{
+				$geometry:{
+					type:"Point",
+					coordinates:[80.28288,13.11629]
+				}
+			}
+		}
+	}
+).pretty()
+
+
+db.places.createIndex({location: "2dsphere"})
+
+
+
+db.places.find(
+	{
+		location:{
+			$near:{
+				$geometry:{
+					type:"Point",
+					coordinates:[80.28288,13.11629]
+				},
+				$maxDistance:300,
+				$minDistance:20
+			}
+		}
+	}
+).pretty()
+
+---------------------------------------------------------------------------------------------------
+
+--aggregation
+
+db.persons.aggregate([
+	{$match: {gender:"female"}},
+	{$group: {_id: {nat:"$nat"}, totalPersons:{$sum:1}}}
+]).pretty()
+
+db.persons.aggregate([
+	{$match: {gender:"female"}},
+	{$group: {_id: {nat:"$nat"}, totalPersons:{$sum:1}}},
+	{$sort: {totalPersons:1}}
+]).pretty()
+
+db.persons.find({gender:"female",nat:"CA"}).count()
+
+
+db.persons.aggregate(
+	{ $project: {_id:0, gender:1, fullName:{ $concat: ["hello", " ","world"]}}}
+)
+
+db.persons.aggregate(
+	{
+		$project:{
+			_id:0,
+			gender:1,
+			fullName:[
+					{$toUpper: '$name.first'},
+					' ',
+					{$toUpper: '$name.last'}
+			]
+		}
+	}
+)
+
+
+db.persons.aggregate(
+	{
+		$project:{
+			_id:0,
+			gender:1,
+			fullName:{
+				$concat:
+				[
+					{$toUpper: {$substrCP :['$name.first', 0,1]}},
+					{
+						$substrCP:[
+							'$name.first',
+							1,
+							{$subtract : [{$strLenCP: '$name.first'},1]}
+						]
+					},
+					" ",
+					{$toUpper: {$substrCP :['$name.last', 0,1]}},
+					{
+						$substrCP:[
+							'$name.last',
+							1,
+							{$subtract : [{$strLenCP: '$name.last'},1]}
+						]
+					}
+				]
+			}
+		}
+	}
+)
+
+-------------------------------------------------------------------------------------------------------------
+
+
+db.friends.insertMany([
+  {
+    "name": "Max",
+    "hobbies": ["Sports", "Cooking"],
+    "age": 29,
+    "examScores": [
+      { "difficulty": 4, "score": 57.9 },
+      { "difficulty": 6, "score": 62.1 },
+      { "difficulty": 3, "score": 88.5 }
+    ]
+  },
+  {
+    "name": "Manu",
+    "hobbies": ["Eating", "Data Analytics"],
+    "age": 30,
+    "examScores": [
+      { "difficulty": 7, "score": 52.1 },
+      { "difficulty": 2, "score": 74.3 },
+      { "difficulty": 5, "score": 53.1 }
+    ]
+  },
+  {
+    "name": "Maria",
+    "hobbies": ["Cooking", "Skiing"],
+    "age": 29,
+    "examScores": [
+      { "difficulty": 3, "score": 75.1 },
+      { "difficulty": 8, "score": 44.2 },
+      { "difficulty": 6, "score": 61.5 }
+    ]
+  }
+]
+)
+
+db.friends.aggregate(
+	[
+		{
+			$group:
+			{
+				_id: {age: "$age"},
+				allHobbies: {$push: "$hobbies"}
+			}
+		}
+	]
+).pretty()
+
+-------------------------------------------------------------------------
+
+--bucketing
+
+db.persons.aggregate([
+	{
+		$bucket:{
+			groupBy: "$dob.age",
+			boundaries: [0,10,30,50,80,110],
+			output:{
+				numPersons:{ $sum:1},
+				averageAge:{ $avg:"$dob.age"}
+			}
+		}
+	}
+]).pretty()
+
+
+db.persons.aggregate([
+	{
+		$bucket:{
+			groupBy: "$dob.age",
+			boundaries: [18,30,40,50,60,80],
+			output:{
+				numPersons:{ $sum:1},
+				averageAge:{ $avg:"$dob.age"}
+			}
+		}
+	}
+]).pretty()
+
+
+db.persons.aggregate([
+	{
+		$bucketAuto:{
+			groupBy: "$dob.age",
+			buckets: 5,
+			output:{
+				numPersons:{ $sum:1},
+				averageAge:{ $avg:"$dob.age"}
+			}
+		}
+	}
+]).pretty()
+
+-----------------------------------------------------------------------------
+
+--$geoNear stage
+
+--create index
+
+db.persons.createIndex({"location.coordinates":"2dsphere"}) --wrong
+
+
+
+
+
+

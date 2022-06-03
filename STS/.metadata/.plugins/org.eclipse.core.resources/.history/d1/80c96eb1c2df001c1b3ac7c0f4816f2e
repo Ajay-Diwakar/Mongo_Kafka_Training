@@ -1,0 +1,5 @@
+package com.virtusa.department.service;
+
+public class DepartmentService {
+
+}

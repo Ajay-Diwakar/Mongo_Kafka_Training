@@ -1,0 +1,5 @@
+package com.virtusa.department.repository;
+
+public class DepartmentRepository {
+
+}

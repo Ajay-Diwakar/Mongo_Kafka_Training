@@ -1,0 +1,5 @@
+package com.virtusa.kafka.consumer;
+
+public class KafkaConsumer {
+
+}

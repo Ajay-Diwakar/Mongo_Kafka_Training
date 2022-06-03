@@ -1,0 +1,5 @@
+package com.virtusa.kafka.config;
+
+public class KafkaConfig {
+
+}

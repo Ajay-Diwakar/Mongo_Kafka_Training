@@ -1,0 +1,22 @@
+package com.virtusa.kafka;
+
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class OrdersController {
+	
+	KafkaTemplate<String, String> kafkaTemplate;
+	
+	private static final String TOPIC = "OrderTopic";
+	
+	@GetMapping("/publish/{message}")
+	public String publishOrderInfo(@PathVariable("message") final String message) {
+		
+		kafkaTemplate.send(Topic, message);
+		return "";
+	}
+
+}

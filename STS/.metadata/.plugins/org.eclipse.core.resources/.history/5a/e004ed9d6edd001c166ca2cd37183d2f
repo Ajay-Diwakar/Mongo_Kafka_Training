@@ -1,0 +1,13 @@
+package com.virtusa.kafka.config;
+
+import org.springframework.kafka.core.ConsumerFactory;
+import org.springframework.context.annotation.Configuration;
+
+@configuration
+public class KafkaConfig {
+	
+	public ConsumerFactory<String,String> consumerFactory(){
+		
+	}
+
+}

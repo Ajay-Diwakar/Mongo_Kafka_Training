@@ -1,0 +1,5 @@
+package com.virtusa.empservice.VO;
+
+public class ResponseTemplateVO {
+
+}
