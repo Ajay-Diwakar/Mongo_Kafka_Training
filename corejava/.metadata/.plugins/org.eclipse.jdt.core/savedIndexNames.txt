@@ -1,0 +1,14 @@
+INDEX VERSION 1.131+C:\Users\erdiw\Desktop\work\MONGO_KAFKA_Training\corejava\.metadata\.plugins\org.eclipse.jdt.core
+2604336525.index
+3528289720.index
+1119071467.index
+155059817.index
+1468007358.index
+1865797976.index
+3021149321.index
+1546364390.index
+2263966776.index
+2726785889.index
+1594486921.index
+856808843.index
+1694648683.index
